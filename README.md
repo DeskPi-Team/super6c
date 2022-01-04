@@ -57,14 +57,24 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
  1. Download the latest Raspberry Pi OS 64bit image from: `https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2021-11-08/`
  2. Unzip it and flash the `*.img` file to TF card by using `Etcher` tool, which can be downloaded via `https://www.balena.io/etcher/`
  3. Modify `config.txt` file in TF card and adding `dtoverlay=dwc2,dr_mode=host` to it and save it.
- 4. Create a new file named `ssh` on TF card `/boot` folder
- 5. Insert TF card into card slot on Super6C board. 
- 6. Connect the power supply to DC Socket or Using ATX Power supply. (Max. 24V/6.15A)
- 7. Connect Full-sized HDMI cable to super6C, Other head connect to your TV or Monitor.
- 8. Connect Keyboard and mouse to USB2.0 port on board.
- 9. Connect Ethernet cable to `ETH1` to your Router.
- 10. Press `pwr buttom` to booting up the CM4.
- 11. Login to Raspberry Pi via username: `pi` password: `raspberry` 
- 12. Make sure your OS can access internet.
- 13. Install `ansible` via following command: `pip3 install ansible --user` 
- 14. Configure environment of PATH by editing `sudo nano /home/pi/.bashrc` 
+<pre> Before we unplug, now that your CM4 is fully flashed and ready to go, you’ll be surprised to learn that the USB Ports are disabled by default. Yes, really. Remember, this is a board designed to be embedded elsewhere and not for consumer-level off-the-shelf use.
+
+In the “boot” folder, find the config.txt and add the following:
+
+dtoverlay=dwc2,dr_mode=host
+
+This will turn on the USB ports when you boot up, but if you accidentally keep the micro USB in, you will run into issues. Before you begin your first boot, make sure everything is unplugged. Boot and then plug in your mouse or keyboard.
+
+If you’re like me and couldn’t get a wi-fi version, this is where you’ll plug in your dongle or ethernet cable.
+</pre>
+ 5. Create a new file named `ssh` on TF card `/boot` folder
+ 6. Insert TF card into card slot on Super6C board. 
+ 7. Connect the power supply to DC Socket or Using ATX Power supply. (Max. 24V/6.15A)
+ 8. Connect Full-sized HDMI cable to super6C, Other head connect to your TV or Monitor.
+ 9. Connect Keyboard and mouse to USB2.0 port on board.
+ 10. Connect Ethernet cable to `ETH1` to your Router.
+ 11. Press `pwr buttom` to booting up the CM4.
+ 12. Login to Raspberry Pi via username: `pi` password: `raspberry` 
+ 13. Make sure your OS can access internet.
+ 14. Install `ansible` via following command: `pip3 install ansible --user` 
+ 15. Configure environment of PATH by editing `sudo nano /home/pi/.bashrc` 
