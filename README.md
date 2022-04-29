@@ -138,40 +138,47 @@ If you’re like me and couldn’t get a wi-fi version, this is where you’ll p
  ---
 ### FAQ 
 * What can I do with Super6C ?
-	Home server (homelab) and cloud apps hosting.
-	Learn Kubernetes, Docker Swarm, Serverless, Microservices on bare metal
-	Cloud-native apps testing environment
-	Learn concepts of distributed Machine Learning apps
-	Prototype and learn cluster applications, parallel computing, and distributed computing concepts
-	Host K8S, K3S, Minecraft, Plex, Owncloud, Nextcloud, Seafile, Minio, Tensorflow
+> Home server (homelab) and cloud apps hosting.
+> Learn Kubernetes, Docker Swarm, Serverless, Microservices on bare metal
+> Cloud-native apps testing environment
+> Learn concepts of distributed Machine Learning apps
+> Prototype and learn cluster applications, parallel computing, and distributed computing concepts
+> Host K8S, K3S, Minecraft, Plex, Owncloud, Nextcloud, Seafile, Minio, Tensorflow
 
 * Which Raspberry Pi models are compatible ?
-	Super6C supports all Raspberry Pi CM4 with and without eMMC.
+> Super6C supports all Raspberry Pi CM4 with and without eMMC.
 	
 * Does Raspberry Pi include compute modules ?
-	No, the product only have cluster motherboard and power adapter.
+> No, the product only have cluster motherboard and power adapter.
 
 * From where Super6C boots OS ?
-	You can boot the OS either from eMMC, SD Card or netboot.
+> You can boot the OS either from eMMC, SD Card or netboot.
 
 * Does each node get its own IP address?
-	Yes
+> Yes
 
 * How the compute modelues communicate with each other ?
-	The nodes interconnected with the onboard 1 Gbps switch. And, each node has 1Gbps speed. 
+> The nodes interconnected with the onboard 1 Gbps switch. And, each node has 1Gbps speed. 
 
 * Do all the slots need to be filled in ?
-	The cluster works with any amount of nodes. You can start with a couple of nodes and scale when needed.
+> The cluster works with any amount of nodes. You can start with a couple of nodes and scale when needed.
 
 * Can I flash compute modules through the board ?
-	Yes, you can flash a compute module using a Micro USB cable.
+> Yes, you can flash a compute module using a Micro USB cable.
 
 * How do the NIC, Ethernet, USB, HDMI, and audio ports work ?
-	There are 2 USB-A an 2 USB 2.54 Pins on the board.They only connect to CM4 1$. The two HDMI ports are also the same.
-	NIC – There is an 8-port gigabit switch on the board. Each port goes to each node plus one uplink. Two RJ45 out are from the switch. You can use them connect to other network device without extern switch.
+> There are 2 USB-A an 2 USB 2.54 Pins on the board.They only connect to CM4 1$. The two HDMI ports are also the same.
+> NIC – There is an 8-port gigabit switch on the board.
+> Each port goes to each node plus one uplink. 
+> Two RJ45 out are from the switch. 
+> You can use them connect to other network device without extern switch.
 
 * Can Super6C function from either an ATX power supply 12V ?
-	Yes.
+> Yes.
+
+* Can I use this cluster io expansion board to just running my MySQL server? 
+> Yes, you can running not only MySQL server but also PostgresSQL, SQLite,
+> Mongo DB and so on.
 
 ---
 
