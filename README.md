@@ -1,6 +1,9 @@
 # super6c
-Super6c stands for Super 6 CM4 Cluster.
-# What Can Super6C do? 
+![sudper6c](./assets/main_super6c.jpg)
+
+## Super6c stands for Super 6 CM4 Cluster.
+
+## What Can Super6C do? 
 * Learn, upskill, experiment on Raspberry Pi Cluster, and research DEV-OPS.
 * Build your Own home pi cluster
 * Build your home assisstant center
@@ -46,12 +49,65 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * Total reset button for all modules
 * Mainboard external control indicator pin
 * Full module Micro SD card slot, used to support non-eMMC version of CM4 *6
-* Full module M.2 M-KEY SSD interface socket *6
+* Full module M.2 2280 M-KEY interface socket *6
+* Support PCIe device 
+--- 
+
+## Block Scheme
+![Block Scheme](./assets/block_diagram.png)
+
+---
+
+## Software Supports
+Super6c supports Kubernetes software ecosystem, as well as machine learning and serverless stacks
+![Support_OS](./assets/support_software.png)
+
+---
+
+## Product Outlook
+* Frontal
+![Frontal](./assets/Frontal_face_super6c.jpg)
+
+* Bottom 
+![Bottom](./assets/Back_face_super6c.jpg)
+
+* IO View
+![IO VIEW](./assets/io_views.jpg)
+
+### Render Images
+![45degree](./assets/Render_super6c.png)
+![90degree](./assets/Render_super6c_02.png)
+![360degree](./assets/Render_super6c_03.png)
+![480degree](./assets/Render_super6c_04.png)
+![180degree](./assets/Render_super6c_05.png)
+
+### Mechanical Drawing
+* Unit: milimeter(mm)
+* PCB Thickness: 1.6mm
+![Mechanical01](./assets/Mechanical Top View.png)
+![Mechanical02](./assets/Mechanical Back View.png)
+
+---
+
+### IO SPEC
+* Back IO 
+![Back IO](./assets/Main Board Back IO.png)
+
+* Front IO
+![Front IO](./assets/Main Board Top View IO.png)
+
+---
 
 ## How to assemble
 * Attach the CM4 to the board by simply aligning it with the two connectors on the IO board, then give it a good squeeze. It’ll crunch into place and you should be set.
+
 ## How to build your own cluster and manage the cluster via ansible.
+
 ### Fit for CM4 Lite version
+> Note: The latest Raspberry Pi OS does not contain `pi` user and it may not
+> need to add `dtoverlay=dwc2,dr_mode=host` to config.txt file.
+
+* Assume you are using the old version (Raspberry Pi OS 2021-11-08) 
 * CM4 Lite means Raspberry Pi Computer module come `without` a EMMC storage onboard.　That means you need purchase MicroSD card(TF card).
 * Steps:
  1. Download the latest Raspberry Pi OS 64bit image from: `https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2021-11-08/`
@@ -80,3 +136,42 @@ If you’re like me and couldn’t get a wi-fi version, this is where you’ll p
  15. Configure environment of PATH by editing `sudo nano /home/pi/.bashrc` 
 
  ---
+### FAQ 
+* What can I do with Super6C ?
+	Home server (homelab) and cloud apps hosting.
+	Learn Kubernetes, Docker Swarm, Serverless, Microservices on bare metal
+	Cloud-native apps testing environment
+	Learn concepts of distributed Machine Learning apps
+	Prototype and learn cluster applications, parallel computing, and distributed computing concepts
+	Host K8S, K3S, Minecraft, Plex, Owncloud, Nextcloud, Seafile, Minio, Tensorflow
+
+* Which Raspberry Pi models are compatible ?
+	Super6C supports all Raspberry Pi CM4 with and without eMMC.
+	
+* Does Raspberry Pi include compute modules ?
+	No, the product only have cluster motherboard and power adapter.
+
+* From where Super6C boots OS ?
+	You can boot the OS either from eMMC, SD Card or netboot.
+
+* Does each node get its own IP address?
+	Yes
+
+* How the compute modelues communicate with each other ?
+	The nodes interconnected with the onboard 1 Gbps switch. And, each node has 1Gbps speed. 
+
+* Do all the slots need to be filled in ?
+	The cluster works with any amount of nodes. You can start with a couple of nodes and scale when needed.
+
+* Can I flash compute modules through the board ?
+	Yes, you can flash a compute module using a Micro USB cable.
+
+* How do the NIC, Ethernet, USB, HDMI, and audio ports work ?
+	There are 2 USB-A an 2 USB 2.54 Pins on the board.They only connect to CM4 1$. The two HDMI ports are also the same.
+	NIC – There is an 8-port gigabit switch on the board. Each port goes to each node plus one uplink. Two RJ45 out are from the switch. You can use them connect to other network device without extern switch.
+
+* Can Super6C function from either an ATX power supply 12V ?
+	Yes.
+
+---
+
