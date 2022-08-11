@@ -63,6 +63,7 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * 12V FAN Header x3
 * DC 19v~24V or ATX 12V
 * Mini ITX Case supported
+	
 ### For every CM4:
 * M.2 2280 slot (PCIe Gen 2 x1)
 * TF Card slot
@@ -77,6 +78,7 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * PACKAGE:
 * 1pcs Raspberry Pi CM4 Cluster Mini-ITX board.
 * 1pcs 100W Power supply.
+	
 <pre> Note:  Raspberry Pi CM4 board are not included. </pre>
 --- 
 ## DIMENSION:
@@ -89,6 +91,7 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * Network-Attached Storage or Distributed Storage System :6 x ARM NAS node or CEPH node
 
 ## Block Scheme
+* Block diagram 
 ![Block Scheme](./assets/block_diagram.png)
 
 ---
@@ -119,7 +122,9 @@ Super6c supports Kubernetes software ecosystem, as well as machine learning and 
 ### Mechanical Drawing
 * Unit: milimeter(mm)
 * PCB Thickness: 1.6mm
+	
 ![Mechanical01](./assets/Mechanical Top View.png)
+	
 ![Mechanical02](./assets/Mechanical Back View.png)
 
 ---
