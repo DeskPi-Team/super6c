@@ -1,7 +1,7 @@
 # DeskPi Super6C
 ## Description 
 DeskPi Super6C is the Raspberry Pi cluster board a standard size mini-ITX board to be put in a case with up to 6 RPI CM4 Compute Modules.
-![sudper6c](./assets/main_super6c.jpg)
+![sudper6c](./assets/main_board.jpg)
 
 ## Super6C Story
 * Super6C stands for Super 6 pcs CM4 Computer module's Cluster.
@@ -55,8 +55,7 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * Full module M.2 2280 M-KEY interface socket *6
 * Support PCIe device 
 
-
-## Main FEATURES
+### Specifications
 * 6 RPI CM4 supported 1 Gbps RJ45 x2
 * Onboard ON/OFF and Reset button
 * PC Case front panel header
@@ -94,6 +93,35 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 * Block diagram 
 ![Block Scheme](./assets/block_diagram.png)
 
+## Port Definitions
+* Port and functions on back
+![Port_definitions](./assets/port_definitions.png)
+
+* Port and functions  
+![Port_definitions](./assets/port_definitions02.png)
+
+### Pin Headers Definitions:
+* CM4 Jumpers Functions:
+![CM4_Jumpers_functions](./assets/CM4_Jumpers.png)
+
+* LED Definitions:
+![LED_definitions](./assets/LED_Definitions.png)
+
+* 4-Pin ATX Power Pins:
+![4_pin_ATX_Power_Pins](./assets/4_pin_ATX_Power_Pins.png)
+
+* Power Button/Reset Button/Front I/O Pins:
+![Power_btn_reset](./assets/Power_btn_reset.png)
+
+
+<pre>Note：</pre>
+* J6: If you are using 9pin USB pins, it is more common for motherboards that support Pentium4 or athlon XP chipsets (such as i845D, i845E, SiS 650, etc.) to need to drop the pins.
+
+If a 10-pin type USB pin is used, such as i815, i815E, i815EP, KT133 and other chipset motherboards, this pin can be reserved, please refer to the motherboard manual for wiring.
+
+* J27: J27 Pin is the control programming interface for power management, which is directly used for internal production, DO NOT CONNECT!!!
+* J11/J13: PoE1/PoE2 Not available, DO NOT CONNECT!!!
+
 ---
 
 ## Software Supports
@@ -123,18 +151,9 @@ Super6c supports Kubernetes software ecosystem, as well as machine learning and 
 * Unit: milimeter(mm)
 * PCB Thickness: 1.6mm
 	
-![Mechanical01](./assets/Mechanical Top View.png)
+![Mechanical01](./assets/mechanical_drawing02.png)
 	
-![Mechanical02](./assets/Mechanical Back View.png)
-
----
-
-### IO SPEC
-* Back IO 
-![Back IO](./assets/Main Board Back IO.png)
-
-* Front IO
-![Front IO](./assets/Main Board Top View IO.png)
+![Mechanical02](./assets/mechanical_drawing.png)
 
 ---
 
@@ -178,15 +197,19 @@ If you’re like me and couldn’t get a wi-fi version, this is where you’ll p
 ## How to install CM4 module
 Please press the CM4 module onto Super6c mainboard as following picture.  
 Attach the CM4 to the board by simply aligning it with the two connectors on the IO board, then give it a good squeeze. It’ll crunch into place and you should be set.
-这里有图
+
+![mainboard_with_CM4](./assets/main_board_with_CM4.jpg)
+
 and if you have SSD drive, install it as following picture.
-这里也有图
+
+![mainboard_with_SSD](./assets/main_board_back_with_SSD.jpg)
+
 ### How to Flash image to eMMC on CM4 module.
 * Flashing the Compute Module eMMC
 The Compute Module has an on-board eMMC device connected to the primary SD card interface. This guide explains how to write data to the eMMC storage using a Compute Module IO board.
 
 Please also read the section in the Compute Module Datasheets:
-![datasheet](https://www.raspberrypi.com/documentation/computers/compute-module.html#datasheets-and-schematics)
+![](https://www.raspberrypi.com/documentation/computers/compute-module.html#datasheets-and-schematics)
 
 ### Compute Module 4
 Ensure the Compute Module is fitted correctly installed on the IO board. It should lie flat on the IO board.
@@ -278,14 +301,16 @@ Once the image has been written, unplug and re-plug the USB; you should see two 
 The /dev/sdX1 and /dev/sdX2 partitions can now be mounted normally.
 
 Make sure ` J2 (nRPBOOT)` is set to the disabled position and/or nothing is plugged into the USB slave port. Power cycling the IO board should now result in the Compute Module booting from eMMC.
-Compute Module 4 Bootloader
-The default bootloader configuration on CM4 is designed to support bring up and development on a Compute Module 4 IO board and the software version flashed at manufacture may be older than the latest release. For final products please consider:-
+这要有一张短接J2的图。
 
-Selecting and verifying a specific bootloader release. The version in the usbboot repo is always a recent stable release.
+----
 
-Configuring the boot device (e.g. network boot). See BOOT_ORDER section in the bootloader configuration guide.
-
-Enabling hardware write protection on the bootloader EEPROM to ensure that the bootloader can’t be modified on remote/inaccessible products.
+## Compute Module 4 Bootloader
+The default bootloader configuration on CM4 is designed to support bring up and development on a Compute Module 4 IO board and the software version flashed at manufacture may be older than the latest release. 
+* For final products please consider:
+* Selecting and verifying a specific bootloader release. The version in the usbboot repo is always a recent stable release.
+* Configuring the boot device (e.g. network boot). See BOOT_ORDER section in the bootloader configuration guide.
+* Enabling hardware write protection on the bootloader EEPROM to ensure that the bootloader can’t be modified on remote/inaccessible products.
 
 N.B. The Compute Module 4 ROM never runs recovery.bin from SD/EMMC and the rpi-eeprom-update service is not enabled by default. This is necessary because the EMMC is not removable and an invalid recovery.bin file would prevent the system from booting. This can be overridden and used with self-update mode where the bootloader can be updated from USB MSD or Network boot. However, self-update mode is not an atomic update and therefore not safe in the event of a power failure whilst the EEPROM was being updated.
 
@@ -332,9 +357,14 @@ After Flash Raspberry Pi OS to eMMC on CM4 module, just power off the system, an
 If your CM4 Module does not have eMMC on board, that will be easy, just flash Raspberry Pi OS to TF card or SSD drive, and insert them to card slot, fix it with screws. and connect the power supply, and press `PWR_BTN` button to power them on.
 
 If your CM4 module has eMMC on board, the SSD drive and TF card can be external mass storage.
-这里有个图
+
+![mainboard_with_SSD](./assets/main_board_back_with_SSD.jpg)
+
+
 ## APPLICATION DEMO 
+
 ###　How to build your own cluster and manage the cluster via Ansible
+
 * Assume you are using the old version (Raspberry Pi OS 2021-11-08)
 * CM4 Lite means Raspberry Pi Computer module come without a EMMC storage onboard.　(That means you need purchase MicroSD card(TF card) additional.)
 * Please Download the latest Raspberry Pi OS 64bit image from: 
@@ -369,7 +399,9 @@ If you’re like me and couldn’t get a wi-fi version, this is where you’ll p
 * Make sure your OS can access internet.
 
 ###　Deploy ansible environments as following steps
+
 If you want to use Ansible to manage Raspberry Pi cluster, you need to upgrade python version from 3.7 to 3.8 as following steps:
+
 * Remove old version python 
 ```bash
 sudo apt remove ansible 
@@ -408,8 +440,13 @@ sudo apt list ansible
 pip3 install ansible --user
 ```
 <pre>Installing Ansible using the --user option, will make that the binary will be available directly under your user home, and not in your root bin directory (/bin,/usr/bin..)</pre>
+
+![which_ansible](./assets/which_ansible.png)
+
 For that, I recommend you to add your `$user_home/.local/bin` to your PATH environment:
-这里有图
+
+![bash_ansible_env_setting](./assets/bash_ansible_env_setting.png)
+
 ### Ansible Project Configuration
 Now that we have Ansible installed, let’s set some basic configuration.
 
@@ -420,6 +457,27 @@ mkdir Ansible
 First file we are going to create, is an Ansible configuration file. This will make sure we are using correct inventory file and some specific options for this project.
 In this case, we will use the inventory file in the local directory and will be connecting to the remote server as root. Additionally, will disable ssh-key check so we can connect to the servers without doing first ssh-key handshake (is a security risk, but will help us to destroy and deploy containers and VMs more rapidly in the future)
 
+![ansible_config](./assets/ansible_config.png)
+Using `--version` attribute, will allow us to make sure we are suing correct configuration file:
+
+![ansible_version](./assets/ansible_version.png)
+
+### Create the inventory file with the list of hosts
+
+![ansible_inventory](./assets/ansible_inventory.png)
+We can list all the hosts from our inventory：
+
+![ansible_all_list_hosts](./assets/ansible_all_list_hosts.png)
+If we try the command ansible ping we will have errors, since we can not actually connect to our servers using SSH public keys.
+```bash
+ansible all –m ping
+```
+![ansible_all_ping](./assets/ansible_all_ping.png)
+
+and before that, we need to create a file called ping.yml. 
+
+![ansible_ping_yaml](./assets/ansible_ping_yaml.png)
+More information please refer to ![ansible](https://www.ansible.com/resources/get-started)
  ---
 ### FAQ 
 * What can I do with Super6C ?
