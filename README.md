@@ -95,22 +95,27 @@ Deploy Kubernetes and containers almost instantly to learn how to do the same wh
 
 ## Port Definitions
 * Port and functions on back
+	
 ![Port_definitions](./assets/port_definitions.png)
 
 * Port and functions  
+	
 ![Port_definitions](./assets/port_definitions02.png)
 
 ### Pin Headers Definitions:
 * CM4 Jumpers Functions:
+	
 ![CM4_Jumpers_functions](./assets/CM4_Jumpers.png)
 
 * LED Definitions:
 ![LED_definitions](./assets/LED_Definitions.png)
 
 * 4-Pin ATX Power Pins:
+	
 ![4_pin_ATX_Power_Pins](./assets/4_pin_ATX_Power_Pins.png)
 
 * Power Button/Reset Button/Front I/O Pins:
+	
 ![Power_btn_reset](./assets/Power_btn_reset.png)
 
 
@@ -126,25 +131,34 @@ If a 10-pin type USB pin is used, such as i815, i815E, i815EP, KT133 and other c
 
 ## Software Supports
 Super6c supports Kubernetes software ecosystem, as well as machine learning and serverless stacks
+	
 ![Support_OS](./assets/support_software.png)
 
 ---
 
 ## Product Outlook
 * Frontal
+	
 ![Frontal](./assets/Frontal_face_super6c.jpg)
 
 * Bottom 
+	
 ![Bottom](./assets/Back_face_super6c.jpg)
 
 * IO View
+	
 ![IO VIEW](./assets/io_views.jpg)
 
 ### Render Images
+	
 ![45degree](./assets/Render_super6c.png)
+	
 ![90degree](./assets/Render_super6c_02.png)
+	
 ![360degree](./assets/Render_super6c_03.png)
+	
 ![480degree](./assets/Render_super6c_04.png)
+	
 ![180degree](./assets/Render_super6c_05.png)
 
 ### Mechanical Drawing
@@ -209,6 +223,7 @@ and if you have SSD drive, install it as following picture.
 The Compute Module has an on-board eMMC device connected to the primary SD card interface. This guide explains how to write data to the eMMC storage using a Compute Module IO board.
 
 Please also read the section in the Compute Module Datasheets:
+	
 ![](https://www.raspberrypi.com/documentation/computers/compute-module.html#datasheets-and-schematics)
 
 ### Compute Module 4
@@ -231,6 +246,7 @@ Please ensure you are not writing to any USB devices whilst the installer is run
 Download and run the Windows installer to install the drivers and boot tool.
 
 * windows installer download URL: 
+	
 ![rpiboot_setup](https://github.com/raspberrypi/usbboot/raw/master/win32/rpiboot_setup.exe)
 
 Plug your host PC USB into the USB SLAVE port, making sure you have setup the board as described above.
@@ -367,9 +383,14 @@ If your CM4 module has eMMC on board, the SSD drive and TF card can be external 
 
 * Assume you are using the old version (Raspberry Pi OS 2021-11-08)
 * CM4 Lite means Raspberry Pi Computer module come without a EMMC storage onboard.　(That means you need purchase MicroSD card(TF card) additional.)
-* Please Download the latest Raspberry Pi OS 64bit image from: 
+* Please Download the latest Raspberry Pi OS 64bit image from:
+	
 ![OS-download](https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2021-11-08/)
-* Unzip it and flash the *.img file to TF card by using Etcher tool, which can be downloaded via ![etcher](https://www.balena.io/etcher/)
+	
+* Unzip it and flash the *.img file to TF card by using Etcher tool, which can be downloaded via 
+	
+![etcher](https://www.balena.io/etcher/)
+	
 * Modify config.txt file in TF card and adding dtoverlay=dwc2,dr_mode=host to it and save it. (Do not need to execute this step if your using the latest version)
 
 Now that your CM4 is fully flashed and ready to go, you’ll be surprised to learn that the USB Ports are disabled by default. 
@@ -465,9 +486,11 @@ Using `--version` attribute, will allow us to make sure we are suing correct con
 ### Create the inventory file with the list of hosts
 
 ![ansible_inventory](./assets/ansible_inventory.png)
+	
 We can list all the hosts from our inventory：
 
 ![ansible_all_list_hosts](./assets/ansible_all_list_hosts.png)
+	
 If we try the command ansible ping we will have errors, since we can not actually connect to our servers using SSH public keys.
 ```bash
 ansible all –m ping
@@ -477,7 +500,11 @@ ansible all –m ping
 and before that, we need to create a file called ping.yml. 
 
 ![ansible_ping_yaml](./assets/ansible_ping_yaml.png)
-More information please refer to ![ansible](https://www.ansible.com/resources/get-started)
+	
+More information please refer to 
+	
+![ansible](https://www.ansible.com/resources/get-started)
+	
  ---
 ### FAQ 
 * What can I do with Super6C ?
