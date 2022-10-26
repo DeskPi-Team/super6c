@@ -537,7 +537,7 @@ More information please refer to [ansible](https://www.ansible.com/resources/get
 > No, the product only have cluster motherboard and power adapter.
 
 * From where Super6C boots OS ?
-> You can boot the OS either from eMMC, SD Card or netboot.
+> You can boot the OS from eMMC, SD Card, netboot, USB or NVMe.
 
 * Does each node get its own IP address?
 > Yes
