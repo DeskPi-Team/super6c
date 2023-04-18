@@ -2,6 +2,7 @@
 ## Description 
 DeskPi Super6C is the Raspberry Pi cluster board a standard size mini-ITX board to be put in a case with up to 6 RPI CM4 Compute Modules.
 ![sudper6c](./assets/main_board.jpg)
+* Purchase URL: [ https://52pi.com/collections/new-arrivals/products/deskpi-super6c-raspberry-pi-cm4-cluster-mini-itx-board-kit-6-rpi-cm4-supported ]
 
 ## Super6C Story
 * Super6C stands for Super 6 pcs CM4 Computer module's Cluster.
